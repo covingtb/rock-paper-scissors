@@ -38,47 +38,114 @@
                 results.textContent = "Draw!";
             } else if (userChoice === "rock") {
                 if (compChoice === "paper") {
-                    results.textContent = "Computer chose paper!\nYou lose!";
                     computerScore += 1;
+                    results.textContent = `Computer chose paper!\nYou lose!\n\nPlayer Score: ${humanScore} | Computer Score: ${computerScore}`;
+                    if (humanScore === 5) {
+                        results.textContent += "\nPlayer wins!";
+                        humanScore = 0;
+                        computerScore = 0;
+                    } else if (computerScore === 5) {
+                        results.textContent += "\nComputer wins";
+                        humanScore = 0;
+                        computerScore = 0;
+                    } else {
+                        return;
+                    }
                 } else {
-                    results.textContent = "Computer chose scissors!\nYou win!";
                     humanScore += 1;
+                    results.textContent = `Computer chose scissors!\nYou win!\n\nPlayer Score: ${humanScore} | Computer Score: ${computerScore}`;
+                    if (humanScore === 5) {
+                        results.textContent += "\nPlayer wins!";
+                        humanScore = 0;
+                        computerScore = 0;
+                    } else if (computerScore === 5) {
+                        results.textContent += "\nComputer wins";
+                        humanScore = 0;
+                        computerScore = 0;
+                    } else {
+                        return;
+                    }
                 }
             } else if (userChoice === "paper") {
                 if (compChoice === "scissors") {
-                    results.textContent = "Computer chose scissors!\nYou lose!";
                     computerScore += 1;
+                    results.textContent = `Computer chose scissors!\nYou lose!\n\nPlayer Score: ${humanScore} | Computer Score: ${computerScore}`;
+                    if (humanScore === 5) {
+                        results.textContent += "\nPlayer wins!";
+                        humanScore = 0;
+                        computerScore = 0;
+                    } else if (computerScore === 5) {
+                        results.textContent += "\nComputer wins";
+                        humanScore = 0;
+                        computerScore = 0;
+                    } else {
+                        return;
+                    }
                 } else {
-                    results.textContent = "Computer chose rock!\nYou win!";
                     humanScore += 1;
+                    results.textContent = `Computer chose rock!\nYou win!\n\nPlayer Score: ${humanScore} | Computer Score: ${computerScore}`;
+                    if (humanScore === 5) {
+                        results.textContent += "\nPlayer wins!";
+                        humanScore = 0;
+                        computerScore = 0;
+                    } else if (computerScore === 5) {
+                        results.textContent += "\nComputer wins";
+                        humanScore = 0;
+                        computerScore = 0;
+                    } else {
+                        return;
+                    }
                 }
             } else {
                 if (compChoice === "rock") {
-                    results.textContent = "Computer chose rock!\nYou lose!";
                     computerScore += 1;
+                    results.textContent = `Computer chose rock!\nYou lose!\n\nPlayer Score: ${humanScore} | Computer Score: ${computerScore}`;
+                    if (humanScore === 5) {
+                        results.textContent += "\nPlayer wins!";
+                        humanScore = 0;
+                        computerScore = 0;
+                    } else if (computerScore === 5) {
+                        results.textContent += "\nComputer wins";
+                        humanScore = 0;
+                        computerScore = 0;
+                    } else {
+                        return;
+                    }
                 } else {
-                    results.textContent = "Computer chose paper!\nYou win!";
                     humanScore += 1;
+                    results.textContent = `Computer chose paper!\nYou win!\n\nPlayer Score: ${humanScore} | Computer Score: ${computerScore}`;
+                    if (humanScore === 5) {
+                        results.textContent += "\nPlayer wins!";
+                        humanScore = 0;
+                        computerScore = 0;
+                    } else if (computerScore === 5) {
+                        results.textContent += "\nComputer wins";
+                        humanScore = 0;
+                        computerScore = 0;
+                    } else {
+                        return;
+                    }
                 }
-            }
-        }
+            } 
 
-        function playGame() {
-            while (humanScore < 5 && computerScore < 5) {
-                let compChoice = getComputerChoice();
-                let userChoice = getUserChoice();
-                playRound(userChoice, compChoice);
-            }
-            if (humanScore === 5) {
-                console.log("You won the game!");
+            /*if (humanScore === 5) {
+                results.textContent += "Player wins!";
+                humanScore = 0;
+                computerScore = 0;
             } else {
-                console.log ("You lost the game.")
-            }
+                results.textContent += "Computer wins";
+                humanScore = 0;
+                computerScore = 0;
+            }*/
         }
 
         const rock = document.createElement("button");
         const paper = document.createElement("button");
         const scissors = document.createElement("button");
+
+        rock.textContent = "Rock";
+        paper.textContent = "Paper";
+        scissors.textContent = "Scissors";
 
         rock.addEventListener("click", () => {
             let userPick = "rock";
