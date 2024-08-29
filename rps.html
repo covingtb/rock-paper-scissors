@@ -6,9 +6,14 @@
     <title>Rock Paper Scissors</title>
 </head>
 <body>
+    <div id="buttons"></div>
+    <div id="results"></div>
     <script>
         let humanScore = 0;
         let computerScore = 0;
+
+        const buttons = document.querySelector("#buttons");
+        const results = document.querySelector("#results");
 
         function getComputerChoice() {
             let compChoice = Math.random() * 100;
@@ -30,29 +35,29 @@
 
         function playRound(userChoice, compChoice) {
             if (userChoice === compChoice) {
-                console.log("Draw!");
+                results.textContent = "Draw!";
             } else if (userChoice === "rock") {
                 if (compChoice === "paper") {
-                    console.log("Computer chose paper!\nYou lose!");
+                    results.textContent = "Computer chose paper!\nYou lose!";
                     computerScore += 1;
                 } else {
-                    console.log("Computer chose scissors!\nYou win!");
+                    results.textContent = "Computer chose scissors!\nYou win!";
                     humanScore += 1;
                 }
             } else if (userChoice === "paper") {
                 if (compChoice === "scissors") {
-                    console.log("Computer chose scissors!\nYou lose!");
+                    results.textContent = "Computer chose scissors!\nYou lose!";
                     computerScore += 1;
                 } else {
-                    console.log("Computer chose rock!\nYou win!");
+                    results.textContent = "Computer chose rock!\nYou win!";
                     humanScore += 1;
                 }
             } else {
                 if (compChoice === "rock") {
-                    console.log("Computer chose rock!\nYou lose!");
+                    results.textContent = "Computer chose rock!\nYou lose!";
                     computerScore += 1;
                 } else {
-                    console.log("Computer chose paper!\nYou win!");
+                    results.textContent = "Computer chose paper!\nYou win!";
                     humanScore += 1;
                 }
             }
@@ -71,11 +76,32 @@
             }
         }
 
-        playGame();
-        /*console.log("rock...");
-        console.log("paper...");
-        console.log("scissors...");
-        console.log("1\n2\n3");*/
+        const rock = document.createElement("button");
+        const paper = document.createElement("button");
+        const scissors = document.createElement("button");
+
+        rock.addEventListener("click", () => {
+            let userPick = "rock";
+            let compPick = getComputerChoice();
+            playRound(userPick, compPick);
+        });
+
+        paper.addEventListener("click", () => {
+            let userPick = "paper";
+            let compPick = getComputerChoice();
+            playRound(userPick, compPick);
+        });
+
+        scissors.addEventListener("click", () => {
+            let userPick = "scissors";
+            let compPick = getComputerChoice();
+            playRound(userPick, compPick);
+        });
+
+        buttons.appendChild(rock);
+        buttons.appendChild(paper);
+        buttons.appendChild(scissors);
+
 
     </script>
 </body>
